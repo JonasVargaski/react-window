@@ -1,36 +1,40 @@
-import React, { useRef, useEffect } from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { MdClose, MdRemove } from 'react-icons/md';
+import useI18n from '~/hooks/useI18n';
 
-import { Container, Title, Actions, Button } from './styles';
-import { dragElement } from '~/utils/drag';
+import { Container, GrabContainer, Title, Actions, Button } from './styles';
 
-export default function Header({ draggable, setStyleWindow }) {
-  const windowRef = useRef(null);
-
-  useEffect(() => {
-    if (windowRef.current) {
-      dragElement(windowRef.current, { onDragEnd: setStyleWindow });
-    }
-  }, [windowRef]);
+function Header({ title, isFocused, allowMinimize, allowClose }) {
+  const { t } = useI18n();
 
   return (
-    <Container ref={windowRef} moved={draggable}>
-      <Title>Teste janela</Title>
+    <Container isFocused={isFocused}>
+      <GrabContainer>
+        <Title>{title}</Title>
+      </GrabContainer>
 
       <Actions>
-        <Button>
-          <MdRemove size={22} color="#f5f5f5" />
-        </Button>
+        {allowMinimize && (
+          <Button data-tip={t('minimize')}>
+            <MdRemove size={22} color="#f5f5f5" />
+          </Button>
+        )}
 
-        <Button>
-          <MdClose size={22} color="#f5f5f5" />
-        </Button>
+        {allowClose && (
+          <Button data-tip={t('close')}>
+            <MdClose size={22} color="#f5f5f5" />
+          </Button>
+        )}
       </Actions>
     </Container>
   );
 }
 
+export default memo(Header);
 Header.propTypes = {
-  draggable: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  isFocused: PropTypes.bool.isRequired,
+  allowMinimize: PropTypes.bool.isRequired,
+  allowClose: PropTypes.bool.isRequired,
 };

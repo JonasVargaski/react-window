@@ -22,7 +22,9 @@ module.exports = {
   rules: {
     "strict": 0,
     "prettier/prettier": "error",
+    "react/forbid-prop-types": "off",
     "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": "off",
     "react/jsx-filename-extension": ["error", { extensions: [".js", ".jsx"] }],
     "import/no-cycle": "off",
     "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],

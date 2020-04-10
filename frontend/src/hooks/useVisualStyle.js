@@ -7,5 +7,13 @@ export default function useVisualStyle(style = {}) {
     setStyles({ ...styles, ...newStyles });
   };
 
-  return [styles, setDinamicStyles];
+  const removeStyles = (attrs = []) => {
+    const allStyles = styles;
+    attrs.forEach((attr) => {
+      delete allStyles[attr];
+    });
+    setStyles(allStyles);
+  };
+
+  return [styles, setDinamicStyles, removeStyles];
 }
