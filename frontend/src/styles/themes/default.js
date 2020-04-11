@@ -1,12 +1,12 @@
 export default {
   colors: {
-    primary: '#FFFDF9',
+    primary: 'red',
     secondary: '#06B49A',
   },
-  fonts: ['Roboto'],
+  fonts: 'Roboto',
   fontSizes: {
-    small: '1em',
-    medium: '2em',
-    large: '3em',
+    label: '12px',
+    input: '12px',
+    element: '12px',
   },
 };

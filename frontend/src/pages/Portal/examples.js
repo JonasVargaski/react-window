@@ -1,14 +1,20 @@
-export default function getExample() {
+import randomValue from '~/utils/randomValue';
+
+export default function getExample(w, h) {
+  const width = randomValue(500, 1200, 250);
+  const height = randomValue(500, 900, 100);
+
   const randomID = () =>
     Math.floor(Math.random() * 44154 * Math.random() * 44154);
+
   return {
     session: String(randomID()),
     key: 'prf547',
     name: 'Tela Teste',
     props: {
-      title: `${randomID()}`,
-      w: 500,
-      h: 400,
+      title: `Window - ${randomID()}`,
+      w: w ?? width(),
+      h: h ?? height(),
       position: 'CENTER',
       type: 'WINDOW',
       allowMinimize: true,
@@ -18,18 +24,20 @@ export default function getExample() {
       {
         id: randomID(),
         type: 'FRAME',
+        elementId: '6952449.mkmfassa',
         styles: {
           w: 450,
           h: 100,
           x: 5,
-          y: 1,
-          z: 2,
+          y: 220,
+          z: 1,
         },
-        css: [1525, 748],
+        css: [],
       },
       {
         id: randomID(),
         type: 'FRAME',
+        elementId: '695529.mkmfassa',
         styles: {
           w: 450,
           h: 100,
@@ -41,19 +49,70 @@ export default function getExample() {
       },
       {
         id: randomID(),
+        elementId: '69564759.mkmfassa',
         type: 'TEXTINPUT',
         props: {
-          disabled: true,
+          disabled: false,
+          maxLength: 30,
         },
         styles: {
-          w: 90,
-          h: 25,
-          x: 60,
+          w: 120,
+          h: 20,
+          x: 100,
           y: 250,
-          z: 2,
-          fz: 12,
         },
         css: [],
+      },
+      {
+        id: randomID(),
+        elementId: '695859.mkmfassa',
+        type: 'TEXTINPUT',
+        props: {
+          disabled: false,
+          maxLength: 30,
+        },
+        styles: {
+          w: 120,
+          h: 20,
+          x: 100,
+          y: 273,
+        },
+        css: [],
+      },
+      {
+        id: randomID(),
+        type: 'LABEL',
+        props: {
+          disabled: false,
+          value: 'Nome',
+        },
+        styles: {
+          w: 88,
+          h: 20,
+          x: 10,
+          y: 250,
+          fs: 13,
+          ta: 'right',
+          va: 'middle',
+        },
+      },
+      {
+        id: randomID(),
+        type: 'LABEL',
+        props: {
+          disabled: false,
+          value: 'Sobrenome',
+        },
+        styles: {
+          w: 88,
+          h: 20,
+          x: 10,
+          y: 273,
+          fs: 13,
+          ta: 'right',
+          va: 'middle',
+        },
+        // css: [5145],
       },
     ],
     css: {

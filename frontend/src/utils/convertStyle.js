@@ -4,7 +4,11 @@ const stylesAttrs = {
   x: 'left',
   y: 'top',
   z: 'zIndex',
-  fz: 'fontSize',
+  mw: 'maxWidth',
+  fs: 'fontSize',
+  fw: 'fontWeight',
+  ta: 'textAlign',
+  va: 'verticalAlign',
 };
 
 export default function convertStyle(styles) {

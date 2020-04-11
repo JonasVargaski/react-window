@@ -6,5 +6,5 @@ export const Container = styled.div.attrs({
   height: 100%;
   width: 100%;
   position: relative;
-  background: #888;
+  background: #fff;
 `;

@@ -3,11 +3,11 @@ import styled, { css } from 'styled-components';
 export const Element = styled.div`
   border: 1px solid #ccc;
   background-color: #fff;
-  font-size: 12px;
   z-index: unset;
   color: #000;
-  font-family: Arial;
   resize: none;
+  font-size: ${({ theme }) => theme.fontSizes.element};
+  font-family: ${({ theme }) => theme.fonts};
 
   ${({ isRequired }) =>
     isRequired &&

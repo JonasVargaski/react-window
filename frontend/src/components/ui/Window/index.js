@@ -4,12 +4,12 @@ import { useDispatch } from 'react-redux';
 import DraggableCore from 'react-draggable';
 
 import useStyle from '~/hooks/useVisualStyle';
+import mountComponents from '../mountComponents';
 
 import { setWindowInFocus } from '~/store/modules/portal/actions';
 
-import { Container } from './styles';
+import { Container, Content } from './styles';
 import Header from './Header';
-import Content from './Content';
 
 function Window({ window, isFocused }) {
   const [style, setStyle] = useStyle({
@@ -30,6 +30,7 @@ function Window({ window, isFocused }) {
   return (
     <DraggableCore
       handle="#grab-touch"
+      allowAnyClick
       onStart={() => setStyle({ opacity: '0.7' })}
       onStop={() => setStyle({ opacity: '1' })}
     >
@@ -49,7 +50,11 @@ function Window({ window, isFocused }) {
           allowClose={window.props.allowClose}
         />
 
-        <Content data={window} />
+        <Content>
+          {mountComponents(window).map(({ id, Component, ...rest }) => (
+            <Component key={id} id={id} {...rest} />
+          ))}
+        </Content>
       </Container>
     </DraggableCore>
   );

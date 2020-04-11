@@ -3,18 +3,24 @@ import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
-export default function TextInput({ id, styles, props, css }) {
-  const { top, left, ...style } = styles;
+export default function TextInput({ elementId, styles, props, css }) {
+  const { top, left, zIndex, ...style } = styles;
 
   return (
-    <Container style={{ top, left }} css={css}>
-      <input id={id} style={style} {...props} autoComplete="off" type="text" />
+    <Container style={{ top, left, zIndex }} css={css}>
+      <input
+        id={elementId}
+        style={style}
+        {...props}
+        autoComplete="off"
+        type="text"
+      />
     </Container>
   );
 }
 
 TextInput.propTypes = {
-  id: PropTypes.string.isRequired,
+  elementId: PropTypes.string.isRequired,
   styles: PropTypes.object.isRequired,
   props: PropTypes.object.isRequired,
   css: PropTypes.string.isRequired,

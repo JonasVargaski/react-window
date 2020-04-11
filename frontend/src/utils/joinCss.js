@@ -1,4 +1,4 @@
-export default function joinCss(list, ids) {
+export default function joinCss(list, ids = []) {
   const css = [];
   ids.forEach((id) => {
     if (list[id]) {
