@@ -6,11 +6,13 @@ import Window from './Window';
 import Frame from './Frame';
 import TextInput from './TextInput';
 import Label from './Label';
+import TextArea from './TextArea';
 
 const uiComponents = {
   WINDOW: Window,
   FRAME: Frame,
   TEXTINPUT: TextInput,
+  TEXTAREA: TextArea,
   LABEL: Label,
 };
 

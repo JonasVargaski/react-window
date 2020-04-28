@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Container } from './styles';
@@ -10,13 +10,16 @@ export default function Portal() {
   const windowInFocus = useSelector((state) => state.portal.windowInFocus);
 
   const [ex, setEx] = useState([]);
-  const [w, setW] = useState(null);
-  const [h, setH] = useState(null);
+  const [w, setW] = useState(450);
+  const [h, setH] = useState(250);
 
-  function handleAddWindow(e) {
-    e.preventDefault();
+  function handleAddWindow() {
     setEx([...ex, getExample(w, h)]);
   }
+
+  useEffect(() => {
+    handleAddWindow();
+  }, []);
 
   return (
     <Container>
