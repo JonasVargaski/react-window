@@ -32,7 +32,10 @@ export default function Portal() {
       ))}
 
       <div style={{ bottom: 0, position: 'absolute' }}>
-        <form onSubmit={handleAddWindow}>
+        <form onSubmit={e=> {
+          e.preventDefault();
+          handleAddWindow()
+          }}>
           <input
             style={{ width: 50, margin: 5 }}
             type="number"
